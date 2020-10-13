@@ -1,5 +1,5 @@
 
-[![site search 360 logo](sitesearch360.png)](https://sitesearch360.com/)
+[![site search 360 logo](sitesearch360.svg)](https://sitesearch360.com/)
 
 # Site Search 360 React Component
 The Site Search 360 React component provides a simple way of adding [Site Search 360](https://sitesearch360.com) to your React app.
