@@ -71,7 +71,7 @@ class SiteSearch360 extends React.Component {
 	render() {
 		const button = this.props.showButton ? <button className={SEARCH_BUTTON_CLASS_NAME}></button> : undefined;
 		return (
-			<section data-ss360="true" className="ss360-search">
+			<section data-ss360={this.props.applyStyling} className="ss360-search">
 				<input type="search" className={SEARCH_BOX_CLASS_NAME} />
 				{button}
 			</section>
@@ -82,11 +82,13 @@ class SiteSearch360 extends React.Component {
 SiteSearch360.propTypes = {
 	ss360Config: PropTypes.object,
 	siteId: PropTypes.string,
-	showButton: PropTypes.bool
+	showButton: PropTypes.bool,
+	applyStyling: PropTypes.bool
 };
 
 SiteSearch360.defaultProps = {
-	showButton: true
+	showButton: true,
+	applyStyling: true
 };
 
 export default SiteSearch360;

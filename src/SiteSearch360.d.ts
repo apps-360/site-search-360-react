@@ -5,6 +5,7 @@ declare module 'SiteSearch360' {
 		ss360Config: object;
 		siteId: string;
 		showButton: boolean;
+		applyStyling: boolean
 	}
 
 	export const SiteSearch360: (props: SiteSearch360Props) => React.SFC<SiteSearch360Props>
