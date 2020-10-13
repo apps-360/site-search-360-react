@@ -39,7 +39,7 @@ The Site ID of your Site Search 360 account. This setting can also be set in the
 #### `ss360Config` (Object)
 Site Search 360 configuration object. See the [Site Search 360 installation docs](https://docs.sitesearch360.com/installation?ss360SearchTerm=Configuration%20Options) for more details.
 
-#### `showButton` (Boolean)1
+#### `showButton` (Boolean)
 Whether to display a search button. Default: `true`
 
 #### `applyStyling` (Boolean)
