@@ -1,6 +1,8 @@
 # Site Search 360 React Component
 The Site Search 360 React component provides a simple way of adding [Site Search 360](https://sitesearch360.com) to your React app.
 
+[![site search 360 logo](sitesearch360.png)](https://sitesearch360.com/)
+
 ## Installation
 If you are using NPM:
 ```
@@ -37,7 +39,7 @@ The Site ID of your Site Search 360 account. This setting can also be set in the
 Site Search 360 configuration object. See the [Site Search 360 installation docs](https://docs.sitesearch360.com/installation?ss360SearchTerm=Configuration%20Options) for more details.
 
 #### `showButton` (Boolean)1
-Whether to display a search button. Default: `true`.
+Whether to display a search button. Default: `true`
 
 #### `applyStyling` (Boolean)
-Whether to apply default styling to the search input. Default: `true`.
+Whether to apply default styling to the search input. Default: `true`
