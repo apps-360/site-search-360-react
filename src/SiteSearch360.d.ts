@@ -4,6 +4,7 @@ declare module 'SiteSearch360' {
 	interface SiteSearch360Props {
 		ss360Config: object;
 		siteId: string;
+		alias: string;
 		showButton: boolean;
 		applyStyling: boolean
 	}

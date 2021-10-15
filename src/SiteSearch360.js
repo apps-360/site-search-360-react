@@ -9,7 +9,11 @@ class SiteSearch360 extends React.Component {
 		// ensure config exists and set selectors
 		let ss360Config = window.ss360Config;
 
-		if (ss360Config === undefined) {
+		//
+		let searchBoxClassName = this.props.alias === undefined || this.props.alias.length === 0 ? SEARCH_BOX_CLASS_NAME : `${SEARCH_BOX_CLASS_NAME}--${this.props.alias}`;
+		let searchButtonClassName = this.props.alias === undefined || this.props.alias.length === 0 ? SEARCH_BUTTON_CLASS_NAME : `${SEARCH_BUTTON_CLASS_NAME}--${this.props.alias}`;
+
+		if (ss360Config === undefined  || (this.props.alias !== undefined && this.props.ss360Config !== undefined)) {
 			ss360Config = this.props.ss360Config;
 		}
 
@@ -33,25 +37,32 @@ class SiteSearch360 extends React.Component {
 
 		let { selector, searchButton } = searchBox;
 
-		if (selector.indexOf(`.${SEARCH_BOX_CLASS_NAME}`) === -1) {
+		if (selector.indexOf(`.${searchBoxClassName}`) === -1) {
 			if (selector.length > 0) {
 				selector = `${selector},`;
 			}
-			searchBox.selector = `${selector}.${SEARCH_BOX_CLASS_NAME}`;
+			searchBox.selector = `${selector}.${searchBoxClassName}`;
 		}
 
-		if (searchButton.indexOf(`.${SEARCH_BUTTON_CLASS_NAME}`) === -1) {
+		if (searchButton.indexOf(`.${searchButtonClassName}`) === -1) {
 			if (searchButton.length > 0) {
 				searchButton = `${searchButton},`;
 			}
-			searchBox.searchButton = `${searchButton}.${SEARCH_BUTTON_CLASS_NAME}`;
+			searchBox.searchButton = `${searchButton}.${searchButtonClassName}`;
 		}
 
 		if (this.props.siteId !== undefined) {
 			ss360Config.siteId = this.props.siteId;
 		}
 
-		window.ss360Config = ss360Config;
+		if (this.props.alias === undefined) {
+			window.ss360Config = ss360Config;
+		} else {
+			if (!('ss360Configs' in window)) {
+				window.ss360Configs = {};
+			}
+			window.ss360Configs[this.props.alias] = ss360Config;
+		}
 	}
 
 	componentDidMount() {
@@ -69,10 +80,12 @@ class SiteSearch360 extends React.Component {
 	}
 
 	render() {
-		const button = this.props.showButton ? <button className={SEARCH_BUTTON_CLASS_NAME}></button> : undefined;
+		let searchBoxClassName = this.props.alias === undefined || this.props.alias.length === 0 ? SEARCH_BOX_CLASS_NAME : `${SEARCH_BOX_CLASS_NAME}--${this.props.alias}`;
+		let searchButtonClassName = this.props.alias === undefined || this.props.alias.length === 0 ? SEARCH_BUTTON_CLASS_NAME : `${SEARCH_BUTTON_CLASS_NAME}--${this.props.alias}`;
+		const button = this.props.showButton ? <button className={searchButtonClassName}></button> : undefined;
 		return (
 			<section data-ss360={this.props.applyStyling} className="ss360-search">
-				<input type="search" className={SEARCH_BOX_CLASS_NAME} />
+				<input type="search" className={searchBoxClassName} />
 				{button}
 			</section>
 		);
@@ -82,6 +95,7 @@ class SiteSearch360 extends React.Component {
 SiteSearch360.propTypes = {
 	ss360Config: PropTypes.object,
 	siteId: PropTypes.string,
+	alias: PropTypes.string,
 	showButton: PropTypes.bool,
 	applyStyling: PropTypes.bool
 };
