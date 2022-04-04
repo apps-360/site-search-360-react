@@ -10,10 +10,10 @@ class SiteSearch360 extends React.Component {
 		let ss360Config = window.ss360Config;
 
 		//
-		let searchBoxClassName = this.props.alias === undefined || this.props.alias.length === 0 ? SEARCH_BOX_CLASS_NAME : `${SEARCH_BOX_CLASS_NAME}--${this.props.alias}`;
-		let searchButtonClassName = this.props.alias === undefined || this.props.alias.length === 0 ? SEARCH_BUTTON_CLASS_NAME : `${SEARCH_BUTTON_CLASS_NAME}--${this.props.alias}`;
+		const searchBoxClassName = this.props.alias === undefined || this.props.alias.length === 0 ? SEARCH_BOX_CLASS_NAME : `${SEARCH_BOX_CLASS_NAME}--${this.props.alias}`;
+		const searchButtonClassName = this.props.alias === undefined || this.props.alias.length === 0 ? SEARCH_BUTTON_CLASS_NAME : `${SEARCH_BUTTON_CLASS_NAME}--${this.props.alias}`;
 
-		if (ss360Config === undefined  || (this.props.alias !== undefined && this.props.ss360Config !== undefined)) {
+		if (ss360Config === undefined || (this.props.alias !== undefined && this.props.ss360Config !== undefined)) {
 			ss360Config = this.props.ss360Config;
 		}
 
@@ -80,8 +80,8 @@ class SiteSearch360 extends React.Component {
 	}
 
 	render() {
-		let searchBoxClassName = this.props.alias === undefined || this.props.alias.length === 0 ? SEARCH_BOX_CLASS_NAME : `${SEARCH_BOX_CLASS_NAME}--${this.props.alias}`;
-		let searchButtonClassName = this.props.alias === undefined || this.props.alias.length === 0 ? SEARCH_BUTTON_CLASS_NAME : `${SEARCH_BUTTON_CLASS_NAME}--${this.props.alias}`;
+		const searchBoxClassName = this.props.alias === undefined || this.props.alias.length === 0 ? SEARCH_BOX_CLASS_NAME : `${SEARCH_BOX_CLASS_NAME}--${this.props.alias}`;
+		const searchButtonClassName = this.props.alias === undefined || this.props.alias.length === 0 ? SEARCH_BUTTON_CLASS_NAME : `${SEARCH_BUTTON_CLASS_NAME}--${this.props.alias}`;
 		const button = this.props.showButton ? <button className={searchButtonClassName}></button> : undefined;
 		return (
 			<section data-ss360={this.props.applyStyling} className="ss360-search">
