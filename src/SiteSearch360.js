@@ -72,7 +72,7 @@ class SiteSearch360 extends React.Component {
 			const script = document.createElement('script');
 			script.setAttribute('defer', 'defer');
 			script.setAttribute('id', 'ss360-script');
-			script.src = 'https://cdn.sitesearch360.com/v13/sitesearch360-v13.min.js';
+			script.src = 'https://cdn.sitesearch360.com/v14/sitesearch360-v14.min.js';
 			document.getElementsByTagName('body')[0].appendChild(script);
 		} else if ('initializeSs360' in window) { // reinitialize script
 			window.initializeSs360();
