@@ -1,4 +1,6 @@
-import React from 'react';
+namespace React {
+	import * as React from 'react';
+}
 
 interface SiteSearch360Props {
 	ss360Config?: object;
